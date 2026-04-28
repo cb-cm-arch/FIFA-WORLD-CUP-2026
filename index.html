@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piala Dunia 2026</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('https://i.postimg.cc/L4C0wV0c/879b1cc04a606cd223e75ec4157174ac.jpg') no-repeat center/cover;
+  color: #fff;
+}
+
+/* overlay biar gelap */
+.overlay {
+  background: rgba(0,0,0,0.7);
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+/* title */
+.title {
+  font-size: 40px;
+  margin-top: 20px;
+}
+
+.year {
+  font-size: 80px;
+  color: gold;
+  font-weight: bold;
+}
+
+/* sub */
+.sub {
+  margin: 15px 0;
+  letter-spacing: 3px;
+  color: #ccc;
+}
+
+/* countdown */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.box {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  width: 80px;
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.box span {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.label {
+  font-size: 12px;
+  color: #ccc;
+}
+
+/* match info */
+.match {
+  margin: 30px 0;
+  letter-spacing: 2px;
+  color: #aaa;
+}
+
+/* table */
+.container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.group {
+  background: rgba(0,0,0,0.7);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 320px;
+}
+
+.group h3 {
+  background: #1e3a6d;
+  margin: 0;
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-size: 14px;
+}
+
+th {
+  color: #aaa;
+}
+
+/* responsive */
+@media(max-width:600px){
+  .year { font-size: 50px; }
+  .title { font-size: 25px; }
+
+}
+@media(max-width:480px){
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media(max-width:600px){
+
+  .group h3 {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  table td {
+    font-size: 11px;
+    padding: 6px;
+  }
+
+}
+.team img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+/* TITLE MEWAH */
+.title {
+  font-size: 42px;
+  margin-top: 20px;
+  background: linear-gradient(90deg, #00c3ff, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(0,150,255,0.6);
+}
+
+.year {
+  font-size: 85px;
+  font-weight: bold;
+  background: linear-gradient(180deg, #ffd700, #ff9900);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(255,215,0,0.7);
+}
+
+/* CARD GROUP MEWAH */
+.group {
+  background: linear-gradient(145deg, rgba(0,0,0,0.8), rgba(10,20,40,0.9));
+  border-radius: 12px;
+  overflow: hidden;
+  width: 320px;
+  border: 1px solid rgba(0,150,255,0.3);
+  box-shadow: 0 0 15px rgba(0,150,255,0.2);
+  transition: 0.3s;
+}
+
+.group:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 0 25px rgba(0,200,255,0.6);
+}
+
+/* HEADER GROUP */
+.group h3 {
+  background: linear-gradient(90deg, #002b5c, #005eff);
+  margin: 0;
+  padding: 10px;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* TEAM STYLE */
+.team {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.2s;
+}
+
+.team img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  padding: 2px;
+}
+
+/* HOVER TEAM */
+.team:hover {
+  color: #00c3ff;
+  transform: translateX(5px);
+}
+
+/* TABLE */
+table tr:hover {
+  background: rgba(0,150,255,0.1);
+}
+
+/* COUNTDOWN BOX */
+.box {
+  background: linear-gradient(145deg, rgba(0,0,0,0.7), rgba(0,50,100,0.8));
+  border: 1px solid rgba(0,150,255,0.3);
+  box-shadow: 0 0 10px rgba(0,150,255,0.3);
+}
+
+.box span {
+  color: #00c3ff;
+}
+
+/* ANIMASI HALUS */
+.group, .box {
+  transition: all 0.3s ease;
+}
+/* TOPBAR */
+.topbar {
+  width: 100%;
+  padding: 10px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  background: linear-gradient(90deg, #001a33, #003366);
+}
+.overlay {
+  margin-top: 70px; /* kasih jarak dari topbar */
+}
+
+/* POSISI KANAN */
+.top-right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-right: 50px; /* kasih jarak dari kanan */
+}
+
+/* BUTTON STYLE */
+.btn {
+  padding: 8px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  transition: 0.3s;
+}
+
+/* LOGIN */
+.login {
+  background: rgba(0,150,255,0.2);
+  border: 1px solid #00c3ff;
+  box-shadow: 0 0 10px rgba(0,150,255,0.5);
+}
+
+/* DAFTAR */
+.daftar {
+  background: rgba(0,150,255,0.2);
+  border: 1px solid #00c3ff;
+  box-shadow: 0 0 10px rgba(0,150,255,0.5);
+}
+
+/* HOVER */
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,200,255,1);
+}
+
+/* Biar konten gak ketutup */
+.overlay {
+  margin-top: 60px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .btn {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="top-right">
+    <a href="https://click-lynk.com/CLICKBET88_WL" target="_blank" class="btn login">DAFTAR</a>
+<a href="https://click-lynk.com/Live-Score" target="_blank" class="btn daftar">LIVE SCORE</a>
+  </div>
+</div>
+
+<div class="overlay">
+
+  <div class="title">Piala Dunia FIFA</div>
+  <div class="year">2026</div>
+
+  <div class="sub">BABAK GRUP · 12 GRUP · 48 TIM</div>
+
+  <h3>Waktu Kick-off</h3>
+
+  <!-- countdown -->
+  <div class="countdown">
+    <div class="box"><span id="days">00</span><div class="label">Hari</div></div>
+    <div class="box"><span id="hours">00</span><div class="label">Jam</div></div>
+    <div class="box"><span id="minutes">00</span><div class="label">Menit</div></div>
+    <div class="box"><span id="seconds">00</span><div class="label">Detik</div></div>
+  </div>
+<div style="margin:20px 0;">
+  <img src="https://jadijuragandiclickbet88-04.xyz/storage/webpersonalize/d54f5304-03b3-49f7-b283-e6fe0c595ca7.gif" 
+       style="width:100%; max-width:500px; border-radius:10px;">
+</div>
+
+  <div class="match">
+    PERTANDINGAN PEMBUKA · <b>11 JUNI 2026</b>
+  </div>
+
+  <!-- group -->
+ <div class="container">
+
+<!-- GROUP A -->
+<div class="group">
+<h3>Group A</h3>
+<table>
+<tr><th>Team</th></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/e399c54b84794822f6e5e3c02c7f3b6e.png">Mexico</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/35d66916de00f7765f6064e6aaf8bf50.png">South Africa</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/a25c2f76ecf9aa566d943aa4b073627e.png">South Korea</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/254d87f50ceb9708e7ff233328848e23.png">Czechia</td></tr>
+</table>
+</div>
+
+<!-- GROUP B -->
+<div class="group">
+<h3>Group B</h3>
+<table>
+<tr><th>Team</th></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/0c7660683be3429ea77999657fa17d79.png">Canada</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/7e2715cb1a79a2947617c86e6b17f8e0.png">Bosnia-Herzegovina</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/a61d3f41d78a6df8bf3a367ed8e6f5a1.png">Qatar</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/f84be480c54f0ff871b91fab14a36b36.png">Switzerland</td></tr>
+</table>
+</div>
+
+<!-- GROUP C -->
+<div class="group">
+<h3>Group C</h3>
+<table>
+<tr><th>Team</th></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/9b8c6e85157f2c085a4f2e2374b3138c.png">Brazil</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/8cb80a922c22b0865fc66c3bf3612cd8.png">Morocco</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/e9adf5a4762d21117d9952483a080618.png">Scotland</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/46470ad68a6d9a6e9b4a0f62103bb02c.crdownload">Haiti</td></tr>
+</table>
+</div>
+
+<!-- GROUP D -->
+<div class="group">
+<h3>Group D</h3>
+<table>
+<tr><th>Team</th></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/e8b03b5c083ffa4e9179571b70c1febe.png">United States</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/a65ccc6bb50e46cef99dd71b9ad92c9f.png">Paraguay</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/6f289bdffe03a2480ad521dc2c114d56.png">Australia</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/9830762d173c37ed87f6f8ce99988adb.png">Turkiye</td></tr>
+</table>
+</div>
+
+<!-- GROUP E -->
+<div class="group">
+<h3>Group E</h3>
+<table>
+<tr><th>Team</th></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/c3eb0fbd35e6085a1f1e8113f5e57fe1.png">Germany</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/c749200f203be84bd11e6ce5eac2c67f.png">Ecuador</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/db5f54482ae28e132611f4c928b6f672.png">Ivory Coast</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/f5bdafb8befe218e2318b144e0d35d07.crdownload">Curaçao</td></tr>
+</table>
+</div>
+
+<!-- GROUP F -->
+<div class="group">
+<h3>Group F</h3>
+<table>
+<tr><th>Team</th></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/299e5135f9cf34205563ff2a5a29ff2a.png">Netherlands</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/72894c2f1348cb00b50dbb7940f340a5.png">Japan</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/2ac182a9d4f41b9cc59c7c4c8977528e.png">Sweden</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/5de585a438634b088e5734dde6783ffd.png">Tunisia</td></tr>
+</table>
+</div>
+
+<!-- GROUP G -->
+<div class="group">
+<h3>Group G</h3>
+<table>
+<tr><th>Team</th></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/f40763e705743d293364c0056abbc341.png">Belgium</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/f31ddd679d7c453f8438244437b8f51f.png">Egypt</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/58b5d5f352fafb845b4f6755c2d5b724.png">Iran</td></tr>
+<tr><td class="team"><img src="https://files.sitestatic.net/assets/imgs/country-flags/NZ-fifa-60x60.webp">New Zealand</td></tr>
+</table>
+</div>
+
+<!-- GROUP H -->
+<div class="group">
+<h3>Group H</h3>
+<table>
+<tr><th>Team</th></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/330b1095d20af4bc1f6a415ae5717ba2.png">Spain</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/b78fbb9123ed9633ac77215960a8a7b3.png">Cabo Verde</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/3874dcd109e646cbe7c5e8fb2bd41548.png">Saudi Arabia</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/087731b0d5df3969923ce974f874b453.png">Uruguay</td></tr>
+</table>
+</div>
+
+<!-- GROUP I -->
+<div class="group">
+<h3>Group I</h3>
+<table>
+<tr><th>Team</th></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/c25d791bcb75569e9e2538e6c88dcad4.png">France</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/57f8b2f1aba00e1ebe7b4d41ac6d4b11.png">Senegal</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/85eba6905189dba3b9de6342ede53150.png">Iraq</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/94776d5c98df60612724f6f03ba36c0a.png">Norway</td></tr>
+</table>
+</div>
+
+<!-- GROUP J -->
+<div class="group">
+<h3>Group J</h3>
+<table>
+<tr><th>Team</th></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/e5e5e0f67481324ebdbd65d65890b2b8.png">Argentina</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/d2d5f2ebbbee1568d330bc53b02aa0e5.png">Algeria</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/be70130b180875a576e98a5a33c8238a.png">Austria</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/b33db33105c82718034c179607a4fa56.png">Jordan</td></tr>
+</table>
+</div>
+
+<!-- GROUP K -->
+<div class="group">
+<h3>Group K</h3>
+<table>
+<tr><th>Team</th></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/8863b9e186e3580aa6dec29f19155d3a.png">Portugal</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/7f5e0cd419a4b7509e13399efb75056a.png">Democratic Republic of the Congo</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/85c15864c8dc45d335bc3720c63cf2a1.png">Uzbekistan</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/e75cc11ef16eb4b01574a92b1487addb.png">Colombia</td></tr>
+</table>
+</div>
+
+<!-- GROUP L -->
+<div class="group">
+<h3>Group L</h3>
+<table>
+<tr><th>Team</th></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/4ffc223b0e0bbd58f069c2d128298408.png">England</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/29af77da9c86e3580fff75f75f0798fc.png">Croatia</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/f63a25999e46016f279bdb8f5caffd33.png">Ghana</td></tr>
+<tr><td class="team"><img src="https://img.thesports.com/football/team/aef114700ab5fcdc5baa98d53a41761a.png">Panama</td></tr>
+</table>
+</div>
+
+</div>
+
+<!-- countdown script -->
+<script>
+const targetDate = new Date("June 11, 2026 00:00:00").getTime();
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const gap = targetDate - now;
+
+  const d = Math.floor(gap / (1000*60*60*24));
+  const h = Math.floor((gap % (1000*60*60*24)) / (1000*60*60));
+  const m = Math.floor((gap % (1000*60*60)) / (1000*60));
+  const s = Math.floor((gap % (1000*60)) / 1000);
+
+  document.getElementById("days").innerText = d;
+  document.getElementById("hours").innerText = h;
+  document.getElementById("minutes").innerText = m;
+  document.getElementById("seconds").innerText = s;
+}, 1000);
+</script>
+
+</body>
+</html>
