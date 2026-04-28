@@ -426,35 +426,161 @@ table tr:hover {
   }
 
 }
+  /* GARIS 3 */
+.menu-toggle {
+  position: fixed;
+  left: 10px;
+  bottom: 150px;
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(145deg, #0072ff, #00c3ff);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #fff;
+  z-index: 10001; /* 🔥 WAJIB tinggi */
+  cursor: pointer;
+}
+
+/* MENU */
+.side-menu {
+  position: fixed;
+  left: -240px;
+  bottom: 230px !important; /* 🔥 ini yang lu cari */
+  width: 200px;
+  background: rgba(0,0,0,0.95);
+  border-radius: 12px;
+  padding: 15px 10px;
+  z-index: 9999;
+
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+
+  box-shadow: 
+    0 0 25px rgba(0,200,255,0.5),
+    inset 0 0 15px rgba(0,150,255,0.3);
+}
+
+/* AKTIF */
+.side-menu.active {
+  left: 10px;
+}
+
+/* ITEM */
+.side-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+  .side-menu a:first-child {
+  margin-top: -10px; /* 🔥 dorong isi ke atas */
+}
+
+.side-menu img {
+  width: 25px;
+}
+  .side-menu {
+  position: fixed;
+  left: -240px;
+  bottom: 90px;
+  width: 200px;
+  background: rgba(0,0,0,0.95);
+  border-radius: 12px;
+  padding: 12px;
+  z-index: 9999;
+
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* 🔥 smooth */
+  
+  box-shadow: 
+    0 0 25px rgba(0,200,255,0.5),
+    inset 0 0 15px rgba(0,150,255,0.3);
+}
+  .side-menu.active {
+  left: 10px;
+    
+}.side-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 8px;
+
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideIn 0.4s forwards;
+}
+
+.side-menu a:nth-child(1){ animation-delay: 0.1s; }
+.side-menu a:nth-child(2){ animation-delay: 0.2s; }
+.side-menu a:nth-child(3){ animation-delay: 0.3s; }
+.side-menu a:nth-child(4){ animation-delay: 0.4s; }
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}.side-menu a:hover {
+  background: linear-gradient(90deg, #0072ff, #00c3ff);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00c3ff;
+}.side-menu img {
+  width: 26px;
+  height: 26px;
+  transition: 0.3s;
+}
+
+.side-menu a:hover img {
+  transform: rotate(10deg) scale(1.2);
+}
+  .menu-toggle span {
+  display: inline-block;
+  transition: transform 0.4s ease, opacity 0.3s;
+}
+
+/* saat aktif (jadi X) */
+.menu-toggle.active span {
+  transform: rotate(180deg) scale(1.2);
+}
 </style>
 </head>
 
 <body>
   <!-- FLOATING BULAT -->
-<div class="floating-circle">
+<div class="menu-toggle" onclick="toggleMenu()" id="menuBtn">
+  <span id="iconMenu">☰</span>
+</div>
+
+<!-- MENU -->
+<div class="side-menu" id="sideMenu">
 
   <a href="https://click-lynk.com/WHATSAPP_OFFICIAL_CLICKBET88WL" target="_blank">
-    <span>WHATSAPP</span>
     <img src="https://cliply.co/wp-content/uploads/2021/08/372108180_WHATSAPP_ICON_400.gif">
+    WHATSAPP
   </a>
 
   <a href="https://click-lynk.com/TELEGRAM_OFFCIAL_CLICKBET88WL" target="_blank">
-    <span>OFFICIAL TELEGRAM</span>
     <img src="https://patung288-bo.l88x.cfd/upload/tele.gif">
+    TELEGRAM
   </a>
 
   <a href="https://direct.lc.chat/12319896" target="_blank">
-    <span>LIVECHAT</span>
     <img src="https://media.tenor.com/S65c088OseQAAAAj/livechat.gif">
+    LIVE CHAT
   </a>
 
   <a href="https://click-lynk.com/CLICKBET88" target="_blank">
-    <span>DAFTAR SBOBET</span>
     <img src="https://i.imgur.com/vD4P9cJ.gif">
+    DAFTAR SBOBET
   </a>
 
 </div>
-
 <div class="topbar">
   <div class="top-right">
     <a href="https://click-lynk.com/CLICKBET88_WL" target="_blank" class="btn login">DAFTAR</a>
@@ -658,7 +784,29 @@ setInterval(() => {
   document.getElementById("minutes").innerText = m;
   document.getElementById("seconds").innerText = s;
 }, 1000);
+  
 </script>
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("sideMenu");
+  const btn = document.getElementById("menuBtn");
+  const icon = document.getElementById("iconMenu");
 
+  menu.classList.toggle("active");
+  btn.classList.toggle("active");
+
+  // animasi ganti icon dengan delay biar smooth
+  if (menu.classList.contains("active")) {
+    setTimeout(() => {
+      icon.innerHTML = "✕";
+    }, 150);
+  } else {
+    setTimeout(() => {
+      icon.innerHTML = "☰";
+    }, 150);
+  }
+}
+</script>
+</script>
 </body>
 </html>
