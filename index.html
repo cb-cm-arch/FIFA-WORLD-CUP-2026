@@ -9,8 +9,19 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: url('https://i.postimg.cc/L4C0wV0c/879b1cc04a606cd223e75ec4157174ac.jpg') no-repeat center/cover;
+
+  background: url('https://i.postimg.cc/L4C0wV0c/879b1cc04a606cd223e75ec4157174ac.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed; /* 🔥 desktop efek keren */
+
   color: #fff;
+}
+  @media(max-width:600px){
+  body {
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; /* 🔥 WAJIB buat HP */
+  }
 }
 
 /* overlay biar gelap */
