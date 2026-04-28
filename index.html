@@ -238,10 +238,6 @@ table tr:hover {
 
   background: linear-gradient(90deg, #001a33, #003366);
 }
-.overlay {
-  margin-top: 70px; /* kasih jarak dari topbar */
-}
-
 /* POSISI KANAN */
 .top-right {
   display: flex;
@@ -280,12 +276,6 @@ table tr:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px rgba(0,200,255,1);
 }
-
-/* Biar konten gak ketutup */
-.overlay {
-  margin-top: 60px;
-}
-
 /* MOBILE */
 @media(max-width:600px){
   .btn {
@@ -293,10 +283,114 @@ table tr:hover {
     font-size: 11px;
   }
 }
+  .overlay {
+  padding-top: 80px; /* ganti margin jadi padding */
+}
+  /* FLOATING BULAT STYLE */
+.floating-circle {
+  position: fixed;
+  left: 8px;
+  bottom: 110px;   /* 🔥 ini yang bikin turun ke bawah */
+  top: auto;       /* matiin posisi atas */
+  transform: none; /* hilangkan tengah */
+}
+
+/* BULAT ICON */
+.floating-circle a {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,200,255,0.3), rgba(0,0,0,0.8));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 0 15px rgba(0,200,255,0.7),
+    inset 0 0 10px rgba(0,200,255,0.5);
+  transition: 0.3s;
+}
+
+/* ICON GAMBAR */
+.floating-circle img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* HOVER EFFECT */
+.floating-circle a:hover {
+  transform: scale(1.15);
+  box-shadow: 
+    0 0 25px rgba(0,255,200,1),
+    inset 0 0 15px rgba(0,255,200,0.8);
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .floating-circle a {
+    width: 50px;
+    height: 50px;
+  }
+
+  .floating-circle img {
+    width: 28px;
+    height: 28px;
+  }
+}
+  /* TEXT HIDDEN */
+.floating-circle a span {
+  position: absolute;
+  left: 70px;
+  background: linear-gradient(90deg, #003366, #0072ff);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: 0.3s;
+}
+
+/* POSISI RELATIVE */
+.floating-circle a {
+  position: relative;
+}
+
+/* EFEK SAAT HOVER / KLIK */
+.floating-circle a:hover span {
+  opacity: 1;
+  transform: translateX(0);
+}
 </style>
 </head>
 
 <body>
+  <!-- FLOATING BULAT -->
+<div class="floating-circle">
+
+  <a href="https://click-lynk.com/WHATSAPP_OFFICIAL_CLICKBET88WL" target="_blank">
+    <span>WHATSAPP</span>
+    <img src="https://cliply.co/wp-content/uploads/2021/08/372108180_WHATSAPP_ICON_400.gif">
+  </a>
+
+  <a href="https://click-lynk.com/TELEGRAM_OFFCIAL_CLICKBET88WL" target="_blank">
+    <span>OFFICIAL TELEGRAM</span>
+    <img src="https://patung288-bo.l88x.cfd/upload/tele.gif">
+  </a>
+
+  <a href="https://direct.lc.chat/12319896" target="_blank">
+    <span>LIVECHAT</span>
+    <img src="https://media.tenor.com/S65c088OseQAAAAj/livechat.gif">
+  </a>
+
+  <a href="https://click-lynk.com/CLICKBET88" target="_blank">
+    <span>DAFTAR SBOBET</span>
+    <img src="https://i.imgur.com/vD4P9cJ.gif">
+  </a>
+
+</div>
 
 <div class="topbar">
   <div class="top-right">
